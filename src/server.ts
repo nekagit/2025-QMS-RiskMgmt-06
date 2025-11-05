@@ -90,5 +90,6 @@ app.delete('/api/risks/:id', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Risk Management System running on http://localhost:${PORT}`);
+  console.log(`Open http://localhost:${PORT} in your browser`);
 });
 
