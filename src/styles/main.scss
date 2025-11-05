@@ -1,0 +1,258 @@
+$primary-color: #2563eb;
+$secondary-color: #64748b;
+$success-color: #10b981;
+$danger-color: #ef4444;
+$warning-color: #f59e0b;
+$bg-color: #f8fafc;
+$card-bg: #ffffff;
+$text-color: #1e293b;
+$border-color: #e2e8f0;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: $bg-color;
+  color: $text-color;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+  
+  h1 {
+    font-size: 2.5rem;
+    color: $primary-color;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    color: $secondary-color;
+    font-size: 1.1rem;
+  }
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sidebar {
+  background: $card-bg;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: $text-color;
+  }
+}
+
+.card {
+  background: $card-bg;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: $primary-color;
+  }
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: $text-color;
+  }
+  
+  input, select, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid $border-color;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    font-family: inherit;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+    }
+  }
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  
+  &.btn-primary {
+    background-color: $primary-color;
+    color: white;
+    
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+  
+  &.btn-danger {
+    background-color: $danger-color;
+    color: white;
+    
+    &:hover {
+      background-color: darken($danger-color, 10%);
+    }
+  }
+  
+  &.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+.risk-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  
+  thead {
+    background-color: $bg-color;
+    
+    th {
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: $text-color;
+      border-bottom: 2px solid $border-color;
+    }
+  }
+  
+  tbody {
+    tr {
+      border-bottom: 1px solid $border-color;
+      
+      &:hover {
+        background-color: $bg-color;
+      }
+      
+      td {
+        padding: 1rem;
+      }
+    }
+  }
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  
+  &.badge-operational {
+    background-color: #dbeafe;
+    color: #1e40af;
+  }
+  
+  &.badge-technical {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+  
+  &.badge-financial {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  &.badge-regulatory {
+    background-color: #e0e7ff;
+    color: #3730a3;
+  }
+  
+  &.badge-reputational {
+    background-color: #f3e8ff;
+    color: #6b21a8;
+  }
+  
+  &.badge-low {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  &.badge-medium {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+  
+  &.badge-high {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  &.badge-risk-low {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  &.badge-risk-medium {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+  
+  &.badge-risk-high {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  &.badge-active {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  &.badge-mitigated {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  &.badge-closed {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+}
+
+.loading, .empty {
+  text-align: center;
+  padding: 2rem;
+  color: $secondary-color;
+}
+

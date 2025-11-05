@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Management - QMS</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚠️ Risk Management System</h1>
+            <p class="subtitle">Identify, assess, and mitigate quality risks</p>
+        </header>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <h2>Quick Actions</h2>
+                <button class="btn btn-primary" hx-get="/api/risks" hx-target="#risk-list" hx-swap="innerHTML">
+                    Refresh List
+                </button>
+            </div>
+
+            <div class="content">
+                <div class="card">
+                    <h2>Register Risk</h2>
+                    <form hx-post="/api/risks" hx-target="#risk-list" hx-swap="outerHTML" hx-on::after-request="this.reset()">
+                        <div class="form-group">
+                            <label for="title">Risk Title</label>
+                            <input type="text" id="title" name="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea id="description" name="description" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select id="category" name="category" required>
+                                <option value="Operational">Operational</option>
+                                <option value="Technical">Technical</option>
+                                <option value="Financial">Financial</option>
+                                <option value="Regulatory">Regulatory</option>
+                                <option value="Reputational">Reputational</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="probability">Probability</label>
+                            <select id="probability" name="probability" required>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="impact">Impact</label>
+                            <select id="impact" name="impact" required>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mitigation">Mitigation Strategy</label>
+                            <textarea id="mitigation" name="mitigation" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select id="status" name="status">
+                                <option value="Active">Active</option>
+                                <option value="Mitigated">Mitigated</option>
+                                <option value="Closed">Closed</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register Risk</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h2>Risk Register</h2>
+                    <div id="risk-list" hx-get="/api/risks" hx-trigger="load">
+                        <div class="loading">Loading risks...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
+
